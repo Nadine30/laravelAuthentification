@@ -11,7 +11,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-5">
-                <form action="/" method="POST">
+                <form action="{{ route('register.post') }}" method="POST">
                     @csrf
                     @if ($errors->any())
                     <div class="alert alert-danger">
@@ -42,7 +42,7 @@
                     <div class="mb-3 form-check">
                       <input type="checkbox" class="form-check-input" id="exampleCheck1">
                       <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                      <a href="/connexion" class="mx-5"> compte existant? Connectez-vous!</a>
+                      <a href="{{ route('login') }}" class="mx-5"> compte existant? Connectez-vous!</a>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>

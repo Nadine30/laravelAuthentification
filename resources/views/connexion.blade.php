@@ -11,7 +11,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-5">
-                <form action='/connexion' method='POST'>
+                <form action="{{ route('login.post') }}" method='POST'>
                     @csrf
                     <div class="mb-3">
                       <label for="exampleInputEmail1" class="form-label">Email address</label>
@@ -25,7 +25,7 @@
                     <div class="mb-3 form-check">
                       <input type="checkbox" class="form-check-input" id="exampleCheck1">
                       <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                      <a href="/"> S'inscrire </a>
+                      <a href="{{ route('register') }}"> S'inscrire </a>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                   </form>
