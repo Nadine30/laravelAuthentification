@@ -35,7 +35,7 @@ class AuthController extends Controller
         $data= User::create([
             'name'=>'Nado',
             'email'=>$email,
-            'password'=>$pwd1
+            'password'=>Hash::make($pwd1)
         ]);
         return view('connexion');
     }
@@ -50,10 +50,16 @@ class AuthController extends Controller
         $email= $request->email;
         $password= $request->password;
 
-        $data= User::where([
+        $user = User::where([
             ['email',$email],
-            ['password',Hash::make($password)]
         ])->first();
-        dd($data);
+
+        if( password_verify($password, $user->password) ){
+            dd("ok");
+        }
+        else{
+            dd("Incorrect");
+        }
+        
     }
 }
